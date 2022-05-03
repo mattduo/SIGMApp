@@ -12,6 +12,9 @@
 		C959CAE728199D660007A27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C959CAE528199D660007A27D /* Main.storyboard */; };
 		C959CAE928199D6A0007A27D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C959CAE828199D6A0007A27D /* Assets.xcassets */; };
 		C959CAEC28199D6A0007A27D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C959CAEA28199D6A0007A27D /* LaunchScreen.storyboard */; };
+		C959CAF42821268A0007A27D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CAF32821268A0007A27D /* SignUpViewController.swift */; };
+		C959CAF6282126990007A27D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CAF5282126990007A27D /* LogInViewController.swift */; };
+		C959CAF8282126D10007A27D /* CalendarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CAF7282126D10007A27D /* CalendarCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		C959CAE828199D6A0007A27D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C959CAEB28199D6A0007A27D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C959CAED28199D6A0007A27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C959CAF32821268A0007A27D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C959CAF5282126990007A27D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		C959CAF7282126D10007A27D /* CalendarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		C959CADE28199D660007A27D /* SIGMA */ = {
 			isa = PBXGroup;
 			children = (
+				C959CAF9282126D50007A27D /* ViewControllers */,
 				C959CADF28199D660007A27D /* AppDelegate.swift */,
 				C959CAE128199D660007A27D /* SceneDelegate.swift */,
 				C959CAE528199D660007A27D /* Main.storyboard */,
@@ -62,6 +69,16 @@
 				C959CAED28199D6A0007A27D /* Info.plist */,
 			);
 			path = SIGMA;
+			sourceTree = "<group>";
+		};
+		C959CAF9282126D50007A27D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C959CAF32821268A0007A27D /* SignUpViewController.swift */,
+				C959CAF5282126990007A27D /* LogInViewController.swift */,
+				C959CAF7282126D10007A27D /* CalendarCollectionViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C959CAF6282126990007A27D /* LogInViewController.swift in Sources */,
+				C959CAF42821268A0007A27D /* SignUpViewController.swift in Sources */,
+				C959CAF8282126D10007A27D /* CalendarCollectionViewController.swift in Sources */,
 				C959CAE028199D660007A27D /* AppDelegate.swift in Sources */,
 				C959CAE228199D660007A27D /* SceneDelegate.swift in Sources */,
 			);
