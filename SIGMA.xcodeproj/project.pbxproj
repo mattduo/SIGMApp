@@ -80,7 +80,6 @@
 				C959CAEA28199D6A0007A27D /* LaunchScreen.storyboard */,
 				C959CAED28199D6A0007A27D /* Info.plist */,
 				C959CAFC282157C50007A27D /* GoogleService-Info.plist */,
-				C959CB07282255FC0007A27D /* DisplayMessageViewController.swift */,
 			);
 			path = SIGMA;
 			sourceTree = "<group>";
@@ -92,6 +91,7 @@
 				C959CAF5282126990007A27D /* LogInViewController.swift */,
 				C959CAF7282126D10007A27D /* CalendarCollectionViewController.swift */,
 				C959CAFA282153330007A27D /* LogInSignUpViewController.swift */,
+				C959CB07282255FC0007A27D /* DisplayMessageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
