@@ -10,7 +10,6 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -45,6 +44,7 @@ class SignUpViewController: UIViewController {
                 self.displayMessage(title: "Error", message: error!.localizedDescription)
                 return
             }
+            self.performSegue(withIdentifier: "signedUpSegue", sender: self)
         }
     }
     
