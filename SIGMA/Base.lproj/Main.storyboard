@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gO0-DE-umq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -12,7 +12,7 @@
         <!--Login/Create Account -->
         <scene sceneID="epX-Tb-icR">
             <objects>
-                <viewController id="IMj-Ug-bZF" sceneMemberID="viewController">
+                <viewController id="IMj-Ug-bZF" customClass="LogInSignUpViewController" customModule="SIGMA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtT-EX-hsI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="lXH-08-cL7" kind="show" id="xPZ-S5-MEV"/>
+                                            <segue destination="lXH-08-cL7" kind="show" identifier="signUpSegue" id="xPZ-S5-MEV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa3-pV-eA3">
@@ -36,7 +36,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log In"/>
                                         <connections>
-                                            <segue destination="jjo-ki-GvF" kind="show" id="Krh-tE-WyM"/>
+                                            <segue destination="jjo-ki-GvF" kind="show" identifier="loginSegue" id="Krh-tE-WyM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -54,6 +54,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login/Create Account " id="y8K-ir-1tB"/>
+                    <connections>
+                        <outlet property="logInButton" destination="Fa3-pV-eA3" id="k99-hB-uVY"/>
+                        <outlet property="signUpButton" destination="8vf-Fq-yzh" id="sxZ-Ts-R0J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lom-zT-RkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,8 +94,8 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Calendar" id="aE6-3o-si0"/>
                     <connections>
-                        <segue destination="yE1-6u-56c" kind="show" id="uWQ-rg-FUB"/>
-                        <segue destination="yhx-em-59y" kind="show" id="qIs-ra-UHn"/>
+                        <segue destination="yE1-6u-56c" kind="show" identifier="OneRepMaxCalculatorSegue" id="uWQ-rg-FUB"/>
+                        <segue destination="yhx-em-59y" kind="show" identifier="createTrainingSessionSegue" id="qIs-ra-UHn"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39h-af-aGs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -139,7 +143,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="One-Rep-Max Calculator" id="iYy-29-IKS"/>
                     <connections>
-                        <segue destination="6Ze-KR-7qV" kind="show" id="8JL-lA-5J6"/>
+                        <segue destination="6Ze-KR-7qV" kind="show" identifier="ExerciseDictionarySegue" id="8JL-lA-5J6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndc-aw-aPF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -171,7 +175,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Exercise Dictionary" id="wcb-0H-0mf"/>
                     <connections>
-                        <segue destination="17G-Po-kX8" kind="show" id="3dV-oi-Gfl"/>
+                        <segue destination="17G-Po-kX8" kind="show" identifier="ProfileSegue" id="3dV-oi-Gfl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLv-c5-RKh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -190,7 +194,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your Profile" id="cx0-9F-Ksz"/>
                     <connections>
-                        <segue destination="WIT-GV-TCd" kind="show" id="gjm-Xh-PMz"/>
+                        <segue destination="WIT-GV-TCd" kind="show" identifier="SettingsSegue" id="gjm-Xh-PMz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FM-CG-mi9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,6 +271,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="lXH-08-cL7" eventType="touchUpInside" id="d0F-pp-8zP"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyy-un-btX">
                                         <rect key="frame" x="0.0" y="300" width="334" height="20.5"/>
@@ -295,7 +302,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="Qpn-q8-emF"/>
                     <connections>
-                        <segue destination="XB3-P3-Y1f" kind="show" id="Mw4-fi-Zny"/>
+                        <outlet property="emailTextField" destination="xbB-UI-Tp8" id="fq8-xn-BRy"/>
+                        <outlet property="errorLabel" destination="Lyy-un-btX" id="FyV-IX-Mn4"/>
+                        <outlet property="passwordTextField" destination="nUx-Rr-DnZ" id="mXy-XH-Ezb"/>
+                        <outlet property="signUpButton" destination="AHL-qu-5p1" id="hny-dk-mxH"/>
+                        <outlet property="unitOfMeasurementSegmentedControl" destination="PHX-WY-lh7" id="ea0-Kr-NSX"/>
+                        <segue destination="XB3-P3-Y1f" kind="show" identifier="signedUpSegue" id="Mw4-fi-Zny"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UB1-rs-3Ct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -330,8 +342,11 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log In"/>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="jjo-ki-GvF" eventType="touchUpInside" id="c07-v9-VhP"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kv-5r-ILI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kv-5r-ILI">
                                         <rect key="frame" x="0.0" y="180" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -354,7 +369,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="ARM-go-DcI"/>
                     <connections>
-                        <segue destination="XB3-P3-Y1f" kind="show" id="SZE-ap-SJG"/>
+                        <outlet property="emailTextField" destination="sgR-bL-4CE" id="ybM-bN-iBJ"/>
+                        <outlet property="errorLabel" destination="8Kv-5r-ILI" id="Jy0-ab-NQV"/>
+                        <outlet property="loginButton" destination="1Rh-11-oaS" id="l4p-mI-Yrb"/>
+                        <outlet property="passwordTextField" destination="rqE-Vb-Kbv" id="6IJ-ZF-OOB"/>
+                        <segue destination="XB3-P3-Y1f" kind="show" identifier="loggedInSegue" id="SZE-ap-SJG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="658-iu-jjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -381,7 +400,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SZE-ap-SJG"/>
+        <segue reference="Mw4-fi-Zny"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
