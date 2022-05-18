@@ -32,7 +32,6 @@ protocol DatabaseProtocol: AnyObject {
     func removeListener(listener: DatabaseListener)
     func addEventToCalendar(listener: DatabaseListener)
     func deleteEventFromCalendar(listener: DatabaseListener)
-    
 }
 
 

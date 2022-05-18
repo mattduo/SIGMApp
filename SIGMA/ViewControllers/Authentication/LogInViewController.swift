@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         errorLabel.alpha = 0 // Hiding error label
+
     }
     
 

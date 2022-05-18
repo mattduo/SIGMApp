@@ -44,6 +44,7 @@ class SignUpViewController: UIViewController {
                 self.displayMessage(title: "Error", message: error!.localizedDescription)
                 return
             }
+            print("Successfully created user: \(authResult.uid)")
             self.performSegue(withIdentifier: "signedUpSegue", sender: self)
         }
     }
