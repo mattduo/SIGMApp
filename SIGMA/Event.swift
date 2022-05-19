@@ -9,18 +9,22 @@ import UIKit
 import FirebaseFirestoreSwift
 import SwiftUI
 
-class Event: NSObject, Codable {
-    @DocumentID var id: String?
-    var notes: String?
-//    var exercises: Array<Any>?
-    var title: String?
-//    var photos: Image
-}
+var eventsList = [Event]()
 
-enum CodingKeys: String, CodingKey {
-    case id
-    case notes
-    case title
+class Event {
+    var id: Int!
+    var title: String!
+    var date: Date!
+    
+    func eventsForDate(date: Date) -> [Event] {
+        var daysEvents = [Event]()
+        for event in eventsList {
+            if (event.date == date) {
+                daysEvents.append(event)
+            }
+        }
+        return daysEvents
+    }
 }
 
 

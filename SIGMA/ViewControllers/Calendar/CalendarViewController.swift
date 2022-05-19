@@ -12,7 +12,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     
-    var selectedDate = Date()
     var totalSquares = [String]()
     
     @IBAction func weeklyViewButton(_ sender: Any) {
@@ -26,7 +25,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
 //        navigationController?.isNavigationBarHidden = true
 //        self.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.hidesBackButton = true
+//        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationController?.isNavigationBarHidden = true
     }
     
     func setCellsView() {
