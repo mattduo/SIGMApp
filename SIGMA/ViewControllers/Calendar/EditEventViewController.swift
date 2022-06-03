@@ -19,9 +19,14 @@ class EditEventViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func dateChanged(_ sender: Any) {
+        
+        
+    }
+    
     @IBAction func doneAction(_ sender: Any) {
         let newEvent = Event()
-        newEvent.id = eventsList.count
+//        newEvent.id = eventsList.count
         newEvent.title = titleTextField.text
         newEvent.date = datePicker.date
         
@@ -29,7 +34,6 @@ class EditEventViewController: UIViewController {
     
         navigationController?.popViewController(animated: true)
     }
-    
 
 
     

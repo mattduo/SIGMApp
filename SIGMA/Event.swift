@@ -11,15 +11,25 @@ import SwiftUI
 
 var eventsList = [Event]()
 
-class Event {
-    var id: Int!
-    var title: String!
-    var date: Date!
+class Event: NSObject, Codable {
+//    var id: Int!
+//    var title: String!
+//    var date: Date!
+    
+    @DocumentID var id: String?
+    var title: String?
+    var date: Date?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case date
+    }
     
     func eventsForDate(date: Date) -> [Event] {
         var daysEvents = [Event]()
         for event in eventsList {
-            if (event.date == date) {
+            if (Calendar.current.isDate(event.date!, inSameDayAs: date)) {
                 daysEvents.append(event)
             }
         }

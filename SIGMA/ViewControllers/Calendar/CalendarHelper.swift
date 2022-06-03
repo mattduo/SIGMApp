@@ -49,7 +49,7 @@ class CalendarHelper {
         let components = calendar.dateComponents([.day], from: date)
         return components.day!
     }
-        
+    
     func firstOfMonth(date: Date) -> Date {
         let components = calendar.dateComponents([.year, .month], from: date)
         return calendar.date(from: components)!

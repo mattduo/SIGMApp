@@ -94,7 +94,7 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! EventCellTableViewCell
         let event = Event().eventsForDate(date: selectedDate)[indexPath.row]
-        cell.eventLabel.text = event.title + " " + CalendarHelper().timeString(date: event.date)
+        cell.eventLabel.text = event.title! + " " + CalendarHelper().timeString(date: event.date!)
         return cell
     }
     

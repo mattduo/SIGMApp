@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -66,35 +67,147 @@
         <!--One-Rep-Max Calculator-->
         <scene sceneID="tHE-WZ-So9">
             <objects>
-                <viewController id="yE1-6u-56c" sceneMemberID="viewController">
+                <viewController id="yE1-6u-56c" customClass="OneRepMaxCalculatorUIViewController" customModule="SIGMA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7p-xy-tff">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-F5-S7Z">
+                                <rect key="frame" x="81" y="142" width="252" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yE1-6u-56c" id="qqv-m9-UX4"/>
+                                </connections>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnh-9O-EN8">
+                                <rect key="frame" x="81" y="184" width="252" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yE1-6u-56c" id="acQ-rh-wWn"/>
+                                    <outlet property="delegate" destination="yE1-6u-56c" id="Bfe-ns-LBi"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eg-9N-59L">
+                                <rect key="frame" x="81" y="315" width="252" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yE1-6u-56c" id="ek1-B0-hsn"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise Weight (kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QmY-aO-xY1">
+                                <rect key="frame" x="81" y="488" width="252" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetitions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTy-ep-CrW">
+                                <rect key="frame" x="81" y="530" width="252" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bodyweight (kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPB-H1-4NM">
+                                <rect key="frame" x="81" y="572" width="252" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-Nc-JBV">
+                                <rect key="frame" x="81" y="646" width="252" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Calculate One Rep Max!"/>
+                                <connections>
+                                    <action selector="calculateORMButton:" destination="yE1-6u-56c" eventType="touchUpInside" id="jgz-uD-U93"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aK-lt-xH0">
+                                <rect key="frame" x="81" y="357" width="252" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yE1-6u-56c" id="sxH-ev-aOE"/>
+                                    <outlet property="delegate" destination="yE1-6u-56c" id="0ZW-lc-S1M"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EGf-dh-LZo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" secondItem="7eg-9N-59L" secondAttribute="trailing" constant="81" id="1Ap-KJ-ZrA"/>
+                            <constraint firstItem="7eg-9N-59L" firstAttribute="top" secondItem="tvG-F5-S7Z" secondAttribute="bottom" constant="139" id="5JD-aS-TYy"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="leading" secondItem="QmY-aO-xY1" secondAttribute="leading" id="7GT-4e-qWL"/>
+                            <constraint firstItem="QVI-Nc-JBV" firstAttribute="height" secondItem="NPB-H1-4NM" secondAttribute="height" multiplier="0.911765" id="8P9-qm-2cH"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QVI-Nc-JBV" secondAttribute="trailing" symbolic="YES" id="8YC-tN-EM2"/>
+                            <constraint firstItem="5aK-lt-xH0" firstAttribute="leading" secondItem="EGf-dh-LZo" secondAttribute="leading" constant="81" id="Cme-xA-U5x"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="width" secondItem="QmY-aO-xY1" secondAttribute="width" id="EV7-ZW-8t5"/>
+                            <constraint firstItem="NPB-H1-4NM" firstAttribute="height" secondItem="oTy-ep-CrW" secondAttribute="height" id="Goy-6I-Ls8"/>
+                            <constraint firstItem="NPB-H1-4NM" firstAttribute="top" secondItem="oTy-ep-CrW" secondAttribute="bottom" constant="8" symbolic="YES" id="JkJ-lO-3CW"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="leading" secondItem="NPB-H1-4NM" secondAttribute="leading" id="KCz-cq-bBV"/>
+                            <constraint firstItem="tvG-F5-S7Z" firstAttribute="leading" secondItem="EGf-dh-LZo" secondAttribute="leading" constant="81" id="KJ9-GM-415"/>
+                            <constraint firstItem="NPB-H1-4NM" firstAttribute="width" secondItem="oTy-ep-CrW" secondAttribute="width" id="MQL-W4-dnq"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" secondItem="5aK-lt-xH0" secondAttribute="trailing" constant="81" id="Nhs-AZ-9gU"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oTy-ep-CrW" secondAttribute="trailing" symbolic="YES" id="Nse-G9-zA0"/>
+                            <constraint firstItem="QmY-aO-xY1" firstAttribute="leading" secondItem="EGf-dh-LZo" secondAttribute="leading" constant="81" id="OM7-5c-ajq"/>
+                            <constraint firstItem="QVI-Nc-JBV" firstAttribute="top" secondItem="NPB-H1-4NM" secondAttribute="bottom" constant="40" id="Pjo-ZZ-dXR"/>
+                            <constraint firstItem="5aK-lt-xH0" firstAttribute="top" secondItem="7eg-9N-59L" secondAttribute="bottom" constant="8" symbolic="YES" id="Wqd-Rx-wdj"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NPB-H1-4NM" secondAttribute="trailing" symbolic="YES" id="WxQ-IN-e16"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="top" secondItem="QmY-aO-xY1" secondAttribute="bottom" constant="8" symbolic="YES" id="ZPu-1p-7P5"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="height" secondItem="QmY-aO-xY1" secondAttribute="height" id="d16-0g-WnB"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" secondItem="tvG-F5-S7Z" secondAttribute="trailing" constant="81" id="dfZ-E7-z9e"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" secondItem="dnh-9O-EN8" secondAttribute="trailing" constant="81" id="epG-vb-WQJ"/>
+                            <constraint firstItem="oTy-ep-CrW" firstAttribute="leading" secondItem="QVI-Nc-JBV" secondAttribute="leading" id="esy-ar-M2T"/>
+                            <constraint firstItem="dnh-9O-EN8" firstAttribute="top" secondItem="tvG-F5-S7Z" secondAttribute="bottom" constant="8" symbolic="YES" id="nCg-pA-ojH"/>
+                            <constraint firstItem="EGf-dh-LZo" firstAttribute="trailing" secondItem="QmY-aO-xY1" secondAttribute="trailing" constant="81" id="pkG-tV-0Nm"/>
+                            <constraint firstItem="QVI-Nc-JBV" firstAttribute="width" secondItem="NPB-H1-4NM" secondAttribute="width" id="q7n-Zx-sKR"/>
+                            <constraint firstItem="7eg-9N-59L" firstAttribute="leading" secondItem="EGf-dh-LZo" secondAttribute="leading" constant="81" id="rD6-nQ-Hyq"/>
+                            <constraint firstItem="QmY-aO-xY1" firstAttribute="top" secondItem="7eg-9N-59L" secondAttribute="bottom" constant="139" id="rTq-AC-KZH"/>
+                            <constraint firstItem="tvG-F5-S7Z" firstAttribute="top" secondItem="EGf-dh-LZo" secondAttribute="top" constant="54" id="ulP-Kt-zf0"/>
+                            <constraint firstItem="dnh-9O-EN8" firstAttribute="leading" secondItem="EGf-dh-LZo" secondAttribute="leading" constant="81" id="xt8-4a-Nng"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="YUf-oV-WA6"/>
+                    <tabBarItem key="tabBarItem" title="One Rep Max Calculator" image="building" catalog="system" id="YUf-oV-WA6"/>
                     <navigationItem key="navigationItem" title="One-Rep-Max Calculator" id="iYy-29-IKS"/>
+                    <connections>
+                        <outlet property="bodyweightTextField" destination="NPB-H1-4NM" id="eD7-g0-wIw"/>
+                        <outlet property="exercisePicker" destination="5aK-lt-xH0" id="UFn-lS-GGh"/>
+                        <outlet property="exerciseTextField" destination="7eg-9N-59L" id="CIk-MH-TwJ"/>
+                        <outlet property="exerciseWeightTextField" destination="QmY-aO-xY1" id="ACv-ub-LTT"/>
+                        <outlet property="genderPicker" destination="dnh-9O-EN8" id="ha8-en-0bu"/>
+                        <outlet property="genderTextField" destination="tvG-F5-S7Z" id="gTW-af-ceb"/>
+                        <outlet property="repetitionsTextField" destination="oTy-ep-CrW" id="ffw-9W-Rm9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndc-aw-aPF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="643"/>
+            <point key="canvasLocation" x="2798.5507246376815" y="642.1875"/>
         </scene>
         <!--Exercise Dictionary-->
         <scene sceneID="Udd-eG-jga">
             <objects>
-                <tableViewController id="6Ze-KR-7qV" sceneMemberID="viewController">
+                <tableViewController id="6Ze-KR-7qV" customClass="ExerciseDictionaryTableViewController" customModule="SIGMA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0xw-eF-X6R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D40-aL-MTw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" textLabel="27h-Jg-elt" detailTextLabel="74R-uF-PFe" style="IBUITableViewCellStyleSubtitle" id="D40-aL-MTw">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D40-aL-MTw" id="dXQ-bi-DVM">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27h-Jg-elt">
+                                            <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="74R-uF-PFe">
+                                            <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -103,7 +216,7 @@
                             <outlet property="delegate" destination="6Ze-KR-7qV" id="1vd-v5-xjX"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="lkC-GL-q8m"/>
+                    <tabBarItem key="tabBarItem" title="Exercises" image="book" catalog="system" id="lkC-GL-q8m"/>
                     <navigationItem key="navigationItem" title="Exercise Dictionary" id="wcb-0H-0mf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLv-c5-RKh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -113,19 +226,30 @@
         <!--Your Profile-->
         <scene sceneID="tSM-SG-HPg">
             <objects>
-                <viewController id="17G-Po-kX8" sceneMemberID="viewController">
+                <viewController id="17G-Po-kX8" customClass="ProfileViewController" customModule="SIGMA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uiX-1m-NYn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfg-tv-t3n">
+                                <rect key="frame" x="157" y="423" width="101" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutButton:" destination="17G-Po-kX8" eventType="touchUpInside" id="7yr-ih-1aY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PSZ-g7-bnx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="45l-gS-8Lr"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="person" catalog="system" id="45l-gS-8Lr"/>
                     <navigationItem key="navigationItem" title="Your Profile" id="cx0-9F-Ksz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FM-CG-mi9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4375" y="643"/>
+            <point key="canvasLocation" x="4373.913043478261" y="642.85714285714278"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="voY-nh-ieN">
@@ -426,11 +550,11 @@
                                 <rect key="frame" x="301.5" y="5" width="92.5" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Weekly View">
                                             <attributes>
-                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                <font key="NSFont" size="11" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -702,6 +826,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="lyd-Ii-6ij"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="dateChanged:" destination="v8L-cT-jDC" eventType="valueChanged" id="t5r-tY-Msh"/>
+                                </connections>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="52I-72-ebg">
                                 <rect key="frame" x="53" y="537" width="308" height="162"/>
@@ -784,11 +911,13 @@
             </objects>
             <point key="canvasLocation" x="2639" y="-224"/>
         </scene>
-        <!--Item-->
+        <!--Calendar-->
         <scene sceneID="c3L-57-u6y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jH9-bA-KET" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3hn-Ph-Wh3"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" selectedImage="calendar" catalog="system" id="3hn-Ph-Wh3">
+                        <imageReference key="image" image="calendar" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BH2-VH-H32">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -808,8 +937,12 @@
         <segue reference="I46-O0-Q36"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="building" catalog="system" width="112" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="icon_next" width="12" height="21"/>
         <image name="icon_prev" width="12" height="21"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
