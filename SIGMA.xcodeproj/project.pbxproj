@@ -21,6 +21,9 @@
 		C95089C3284BBCCE0086E4D1 /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = C95089C2284BBCCE0086E4D1 /* exercises.json */; };
 		C95089C5284BBD280086E4D1 /* LocalJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089C4284BBD280086E4D1 /* LocalJsonParser.swift */; };
 		C95089C7284BBE590086E4D1 /* ExerciseDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089C6284BBE590086E4D1 /* ExerciseDescription.swift */; };
+		C95089CC284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089CB284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift */; };
+		C95089CE284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089CD284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift */; };
+		C95089D0284BE69A0086E4D1 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089CF284BE69A0086E4D1 /* gifLoader.swift */; };
 		C959CAE028199D660007A27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CADF28199D660007A27D /* AppDelegate.swift */; };
 		C959CAE228199D660007A27D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CAE128199D660007A27D /* SceneDelegate.swift */; };
 		C959CAE728199D660007A27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C959CAE528199D660007A27D /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		C95089C2284BBCCE0086E4D1 /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		C95089C4284BBD280086E4D1 /* LocalJsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJsonParser.swift; sourceTree = "<group>"; };
 		C95089C6284BBE590086E4D1 /* ExerciseDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescription.swift; sourceTree = "<group>"; };
+		C95089CB284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDictionaryViewController.swift; sourceTree = "<group>"; };
+		C95089CD284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C95089CF284BE69A0086E4D1 /* gifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifLoader.swift; sourceTree = "<group>"; };
 		C959CADC28199D660007A27D /* SIGMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIGMA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C959CADF28199D660007A27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C959CAE128199D660007A27D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,19 +137,10 @@
 		C95089B1283F51EB0086E4D1 /* ExerciseDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				C95089BF284A46510086E4D1 /* ExerciseDictionaryTableViewController.swift */,
 				C95089B8284A1EC40086E4D1 /* Exercise.swift */,
-				C95089BA284A22BD0086E4D1 /* WebService */,
-			);
-			path = ExerciseDictionary;
-			sourceTree = "<group>";
-		};
-		C95089BA284A22BD0086E4D1 /* WebService */ = {
-			isa = PBXGroup;
-			children = (
 				C95089BD284A2C370086E4D1 /* WebServiceViewController.swift */,
 			);
-			path = WebService;
+			path = ExerciseDictionary;
 			sourceTree = "<group>";
 		};
 		C95089C1284BBCAA0086E4D1 /* ExerciseDescription */ = {
@@ -154,6 +151,19 @@
 				C95089C6284BBE590086E4D1 /* ExerciseDescription.swift */,
 			);
 			path = ExerciseDescription;
+			sourceTree = "<group>";
+		};
+		C95089C8284BDC490086E4D1 /* ExerciseVC */ = {
+			isa = PBXGroup;
+			children = (
+				C95089CF284BE69A0086E4D1 /* gifLoader.swift */,
+				C95089CD284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift */,
+				C95089CB284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift */,
+				C95089BF284A46510086E4D1 /* ExerciseDictionaryTableViewController.swift */,
+				C95089B1283F51EB0086E4D1 /* ExerciseDictionary */,
+				C95089C1284BBCAA0086E4D1 /* ExerciseDescription */,
+			);
+			path = ExerciseVC;
 			sourceTree = "<group>";
 		};
 		C959CAD328199D660007A27D = {
@@ -193,8 +203,7 @@
 		C959CAF9282126D50007A27D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C95089C1284BBCAA0086E4D1 /* ExerciseDescription */,
-				C95089B1283F51EB0086E4D1 /* ExerciseDictionary */,
+				C95089C8284BDC490086E4D1 /* ExerciseVC */,
 				C95089B0283F51E30086E4D1 /* Profile */,
 				C95089AD283F2C830086E4D1 /* ORMCalculator */,
 				C945081A282BDBE9005D7770 /* Authentication */,
@@ -300,7 +309,9 @@
 				C959D13D2822BF700007A27D /* CalendarViewController.swift in Sources */,
 				C959D1412822BFB10007A27D /* Event.swift in Sources */,
 				C959CAF6282126990007A27D /* LogInViewController.swift in Sources */,
+				C95089CC284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift in Sources */,
 				C95089C0284A46520086E4D1 /* ExerciseDictionaryTableViewController.swift in Sources */,
+				C95089D0284BE69A0086E4D1 /* gifLoader.swift in Sources */,
 				C959CAF42821268A0007A27D /* SignUpViewController.swift in Sources */,
 				C95089C5284BBD280086E4D1 /* LocalJsonParser.swift in Sources */,
 				C95089B9284A1EC50086E4D1 /* Exercise.swift in Sources */,
@@ -308,6 +319,7 @@
 				C959D1462822C04C0007A27D /* DatabaseProtocol.swift in Sources */,
 				C95089B3283F52040086E4D1 /* ProfileViewController.swift in Sources */,
 				C959CAFB282153330007A27D /* LogInSignUpViewController.swift in Sources */,
+				C95089CE284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift in Sources */,
 				C959D13F2822BFA40007A27D /* User.swift in Sources */,
 				C945081C282C215F005D7770 /* WeeklyViewController.swift in Sources */,
 				C95089BE284A2C370086E4D1 /* WebServiceViewController.swift in Sources */,
