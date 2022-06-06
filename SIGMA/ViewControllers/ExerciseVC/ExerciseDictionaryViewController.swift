@@ -11,11 +11,33 @@ class ExerciseDictionaryViewController: UIViewController {
     
     let parser = WebService()
     var exercises = [Exercise]()
+    let webService = WebService()
     
     @IBOutlet weak var exerciseCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let searchController = UISearchController(searchResultsController: nil)
+//        exerciseCollectionView.inputAccessoryViewController?.navigationItem.searchController = searchController
+
+        
+//        let searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchBar.delegate = self
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search"
+//        searchController.searchBar.showsCancelButton = false
+//
+//        searchController.searchBar.becomeFirstResponder()
+//
+//        exerciseCollectionView.inputViewController?.navigationItem.titleView = searchController.searchBar
+//
+//        self.navigationItem.searchController = searchController
+//        navigationItem.titleView = searchController.searchBar
+//        navigationItem.hidesSearchBarWhenScrolling = false
+//
+//
         
         parser.getExercises {
             data in self.exercises = data
@@ -56,10 +78,41 @@ extension ExerciseDictionaryViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: size, height: size)
     }
+    
 }
 
 extension ExerciseDictionaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //to-do
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "searchBar", for: indexPath)
+        
+        return searchView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 50)
+    }
+    
+}
+
+extension ExerciseDictionaryViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        webService.newExercises.removeAll()
+        exerciseCollectionView.reloadData()
+        
+        guard let searchText = searchBar.text, searchText.isEmpty == false else {
+            return
+        }
+        navigationItem.searchController?.dismiss(animated: true)
+        Task {
+            URLSession.shared.invalidateAndCancel()
+            webService.currentRequestIndex = 0
+            await webService.requestExercisesNamed(searchText)
+        }
     }
 }

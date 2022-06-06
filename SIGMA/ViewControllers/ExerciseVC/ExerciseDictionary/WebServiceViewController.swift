@@ -10,6 +10,13 @@ import Foundation
 
 class WebService {
     
+    let MAX_ITEMS_PER_REQUEST = 40
+    let MAX_REQUESTS = 10
+    var currentRequestIndex = 0
+    
+    var newExercises = [Exercise]()
+    
+    
 //    func getExercises() {
 //        let headers = [
 //            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
@@ -59,7 +66,53 @@ class WebService {
                 }
             }
         dataTask.resume()
+    }
+    
+    func requestExercisesNamed(_ exerciseName: String) async {
+        
+        let urlString = "https://exercisedb.p.rapidapi.com/exercises"
+        let headers = [
+            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+            "X-RapidAPI-Key": "cb8d8e2757msha265aec0c035261p1eeeafjsnaa24e0ad4e49"
+        ]
+        
+//        let params = ["bodyPart", "equipment", "gifUrl", "id", "name", "target"]
+        
+        var urlComponents = URLComponents(string: urlString)
+        urlComponents?.queryItems = [URLQueryItem(name: "maxResults", value: "\(MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "startIndex", value: "\(currentRequestIndex * MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "q", value: exerciseName)]
+        
+        var request = URLRequest(url: (urlComponents?.url)!)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+//        for (key, value) in headers {
+//            request.setValue(value, forHTTPHeaderField: key)
+//        }
+        
+        do {
+            let (data, _) =
+            try await URLSession.shared.data(for: request)
+            await MainActor.run {
+            }
+            let decoder = JSONDecoder()
+            let exerciseData = try decoder.decode(ExerciseData.self, from: data)
+            if let exercises = exerciseData.exercises {
+                await MainActor.run {
+                newExercises.append(contentsOf: exercises)
+                }
+                if exercises.count == MAX_ITEMS_PER_REQUEST, currentRequestIndex + 1 < MAX_REQUESTS {
+                    currentRequestIndex += 1
+                    await requestExercisesNamed(exerciseName)
+                }
 
+            }
+                
+        }
+        catch let error {
+            print(error)
         }
     }
+    
+}
+
 

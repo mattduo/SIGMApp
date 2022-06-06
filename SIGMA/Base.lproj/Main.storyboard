@@ -264,13 +264,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d3W-tH-Eq7">
                                     <size key="itemSize" width="176" height="224"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exerciseCell" id="B7o-WP-B7J" customClass="ExerciseCollectionViewCell" customModule="SIGMA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="224"/>
+                                        <rect key="frame" x="0.0" y="50" width="176" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3p4-FC-ORj">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="224"/>
@@ -306,6 +306,23 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="searchBar" id="GPS-d6-DNK" customClass="SearchBarView" customModule="SIGMA" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search For Exercises" translatesAutoresizingMaskIntoConstraints="NO" id="Aah-yJ-lLa">
+                                            <rect key="frame" x="0.0" y="3" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="xIh-bu-Q7g" id="1vg-x5-ALn"/>
+                                            </connections>
+                                        </searchBar>
+                                    </subviews>
+                                    <connections>
+                                        <outlet property="searchBar" destination="Aah-yJ-lLa" id="P8x-fX-QrO"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oFP-Qh-Wfg"/>
