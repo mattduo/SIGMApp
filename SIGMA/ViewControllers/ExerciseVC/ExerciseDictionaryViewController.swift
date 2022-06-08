@@ -11,15 +11,9 @@ class ExerciseDictionaryViewController: UIViewController {
     
 
     var newExercises = [Exercise]()
-    
     var filteredExercises: [Exercise]!
-
-    let parser = WebService()
-    var exercises = [Exercise]()
-    let webService = WebService()
-    
-    let sbv = SearchBarView()
-    
+    let searchController = UISearchController()
+            
     @IBOutlet weak var exerciseCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -29,13 +23,19 @@ class ExerciseDictionaryViewController: UIViewController {
             await getAllExercises()
         }
                 
-        
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        searchController.searchBar.scopeButtonTitles = ["All", "Upperbody", "Lowerbody", "Cardio"]
+        searchController.searchBar.showsScopeBar = true
+//        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Exercises"
+        searchController.navigationItem.hidesSearchBarWhenScrolling = false
         
         exerciseCollectionView.dataSource = self
         exerciseCollectionView.delegate = self
         exerciseCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-        sbv.setUpSearchBar()
         
     }
     
@@ -80,7 +80,7 @@ class ExerciseDictionaryViewController: UIViewController {
 
 extension ExerciseDictionaryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newExercises.count
+            return newExercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,30 +108,31 @@ extension ExerciseDictionaryViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension ExerciseDictionaryViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //to-do
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "searchBar", for: indexPath)
-
-        
-        return searchView
-    }
-    
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 80)
-    }
-
-}
+//extension ExerciseDictionaryViewController: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        //to-do
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//
+//        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "searchBar", for: indexPath)
+//
+//
+//        return searchView
+//    }
+//
+//
+//
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: collectionView.frame.width, height: 80)
+//    }
+//
+//}
 
 extension ExerciseDictionaryViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         self.newExercises.removeAll()
         
         for exercise in self.filteredExercises {
@@ -140,6 +141,70 @@ extension ExerciseDictionaryViewController: UISearchBarDelegate {
             }
         }
         if searchBar.text!.isEmpty {
+            self.newExercises = self.filteredExercises
+        }
+        self.exerciseCollectionView.reloadData()
+        
+        //        let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        
+//        for exercise in self.filteredExercises {
+//            if exercise.name.lowercased().contains(searchBar.text!.lowercased()) {
+//                if (exercise.bodyPart.rawValue == "back" || exercise.bodyPart.rawValue == "chest" || exercise.bodyPart.rawValue == "lower arms" || exercise.bodyPart.rawValue == "neck" || exercise.bodyPart.rawValue == "shoulders" || exercise.bodyPart.rawValue == "upper arms") && (scopeButton == "Upperbody") {
+//                    self.newExercises.append(exercise)
+//                }
+//                if (exercise.bodyPart.rawValue == "waist" || exercise.bodyPart.rawValue == "lower legs" || exercise.bodyPart.rawValue == "upper legs") && scopeButton == "Lowerbody" {
+//                    self.newExercises.append(exercise)
+//                }
+//                if (exercise.bodyPart.rawValue == "cardio") && scopeButton == "Cardio" {
+//                    self.newExercises.append(exercise)
+//                }
+//                else {
+//                    self.newExercises.append(exercise)
+//                }
+//            }
+//        }
+
+
+        
+//        for exercise in self.filteredExercises {
+//            if exercise.name.lowercased().contains(searchBar.text!.lowercased()) {
+//                self.newExercises.append(exercise)
+//            }
+//        }
+//        if searchBar.text!.isEmpty {
+//            self.newExercises = self.filteredExercises
+//        }
+//        self.exerciseCollectionView.reloadData()
+//    }
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+        self.newExercises.removeAll()
+        
+        if selectedScope == 1 {
+            for exercise in filteredExercises {
+                if (exercise.bodyPart.rawValue == "back" || exercise.bodyPart.rawValue == "chest" || exercise.bodyPart.rawValue == "lower arms" || exercise.bodyPart.rawValue == "neck" || exercise.bodyPart.rawValue == "shoulders" || exercise.bodyPart.rawValue == "upper arms" || exercise.bodyPart.rawValue == "waist") {
+                    self.newExercises.append(exercise)
+                }
+            }
+        }
+        if selectedScope == 2 {
+            for exercise in filteredExercises {
+                if (exercise.bodyPart.rawValue == "lower legs" || exercise.bodyPart.rawValue == "upper legs") {
+                    self.newExercises.append(exercise)
+                }
+            }
+        }
+        if selectedScope == 3 {
+            for exercise in filteredExercises {
+                if (exercise.bodyPart.rawValue == "cardio") {
+                    self.newExercises.append(exercise)
+                }
+            }
+        }
+        if selectedScope == 0 {
             self.newExercises = self.filteredExercises
         }
         self.exerciseCollectionView.reloadData()

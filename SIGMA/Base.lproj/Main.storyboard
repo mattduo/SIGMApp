@@ -251,7 +251,7 @@
             </objects>
             <point key="canvasLocation" x="4665" y="642"/>
         </scene>
-        <!--Exercise Dictionary-->
+        <!--Exercise Dictionary View Controller-->
         <scene sceneID="H1n-gJ-3BI">
             <objects>
                 <viewController id="xIh-bu-Q7g" customClass="ExerciseDictionaryViewController" customModule="SIGMA" customModuleProvider="target" sceneMemberID="viewController">
@@ -264,13 +264,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d3W-tH-Eq7">
                                     <size key="itemSize" width="176" height="224"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exerciseCell" id="B7o-WP-B7J" customClass="ExerciseCollectionViewCell" customModule="SIGMA" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="176" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3p4-FC-ORj">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="224"/>
@@ -306,23 +306,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="searchBar" id="GPS-d6-DNK" customClass="SearchBarView" customModule="SIGMA" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search For Exercises" translatesAutoresizingMaskIntoConstraints="NO" id="Aah-yJ-lLa">
-                                            <rect key="frame" x="0.0" y="3" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="xIh-bu-Q7g" id="1vg-x5-ALn"/>
-                                            </connections>
-                                        </searchBar>
-                                    </subviews>
-                                    <connections>
-                                        <outlet property="searchBar" destination="Aah-yJ-lLa" id="P8x-fX-QrO"/>
-                                    </connections>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oFP-Qh-Wfg"/>
@@ -334,14 +317,14 @@
                             <constraint firstItem="idv-A1-pwo" firstAttribute="top" secondItem="oFP-Qh-Wfg" secondAttribute="top" id="olc-VY-yCq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Exercise Dictionary" image="books.vertical" catalog="system" id="Rfb-jg-Crm"/>
+                    <navigationItem key="navigationItem" id="68L-Bs-O50"/>
                     <connections>
                         <outlet property="exerciseCollectionView" destination="idv-A1-pwo" id="Pol-1k-bD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11J-mg-aMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5605.7971014492759" y="641.51785714285711"/>
+            <point key="canvasLocation" x="6515.9420289855079" y="641.51785714285711"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="voY-nh-ieN">
@@ -995,7 +978,7 @@
                     <connections>
                         <segue destination="jH9-bA-KET" kind="relationship" relationship="viewControllers" id="jCg-SC-qdc"/>
                         <segue destination="yE1-6u-56c" kind="relationship" relationship="viewControllers" id="pTz-6R-wwU"/>
-                        <segue destination="xIh-bu-Q7g" kind="relationship" relationship="viewControllers" id="d8E-04-avi"/>
+                        <segue destination="4Xf-Kr-hTP" kind="relationship" relationship="viewControllers" id="d8E-04-avi"/>
                         <segue destination="17G-Po-kX8" kind="relationship" relationship="viewControllers" id="ae7-ou-bzz"/>
                     </connections>
                 </tabBarController>
@@ -1023,6 +1006,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx6-ec-I1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3528.985507246377" y="-224.33035714285714"/>
+        </scene>
+        <!--Exercise Dictionary-->
+        <scene sceneID="YiN-j5-k2M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Xf-Kr-hTP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Exercise Dictionary" image="books.vertical" catalog="system" id="Rfb-jg-Crm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Dg-fW-8SS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xIh-bu-Q7g" kind="relationship" relationship="rootViewController" id="pVC-X1-cds"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBv-yc-oEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5605.7971014492759" y="641.51785714285711"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
