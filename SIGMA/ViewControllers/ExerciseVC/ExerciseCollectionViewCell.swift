@@ -11,7 +11,6 @@ class ExerciseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var exerciseNameLabel: UILabel!
     
-    let parser = WebService()
     var exercises = [Exercise]()
     
     func setUp(with exercise: Exercise) {

@@ -15,6 +15,7 @@ import Foundation
 // MARK: - Welcome
 struct ExerciseData: Codable {
     var exercises: [Exercise]?
+    
 }
 
 // MARK: - Exercise

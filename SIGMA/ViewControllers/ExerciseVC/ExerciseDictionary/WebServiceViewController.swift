@@ -41,78 +41,70 @@ class WebService {
 //    }
 //}
         
-    func getExercises(comp: @escaping ([Exercise]) -> ()) {
-        let headers = [
-            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-            "X-RapidAPI-Key": "cb8d8e2757msha265aec0c035261p1eeeafjsnaa24e0ad4e49"
-        ]
-
-        let request = NSMutableURLRequest(url: NSURL(string: "https://exercisedb.p.rapidapi.com/exercises")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil {
-                print(error?.localizedDescription)
-                return
-            }
-                do {
-                    let result = try JSONDecoder().decode([Exercise].self, from: data!)
-                    comp(result)
-                } catch {
-                    print(error)
-                }
-            }
-        dataTask.resume()
-    }
+//    func getExercises(comp: @escaping ([Exercise]) -> ()) {
+//        let headers = [
+//            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+//            "X-RapidAPI-Key": "cb8d8e2757msha265aec0c035261p1eeeafjsnaa24e0ad4e49"
+//        ]
+//
+//        let request = NSMutableURLRequest(url: NSURL(string: "https://exercisedb.p.rapidapi.com/exercises")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+//        
+//        request.httpMethod = "GET"
+//        request.allHTTPHeaderFields = headers
+//
+//        let session = URLSession.shared
+//        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
+//            if error != nil {
+//                print(error?.localizedDescription)
+//                return
+//            }
+//                do {
+//                    let result = try JSONDecoder().decode([Exercise].self, from: data!)
+//                    comp(result)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        dataTask.resume()
+//    }
     
-    func requestExercisesNamed(_ exerciseName: String) async {
-        
-        let urlString = "https://exercisedb.p.rapidapi.com/exercises"
-        let headers = [
-            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-            "X-RapidAPI-Key": "cb8d8e2757msha265aec0c035261p1eeeafjsnaa24e0ad4e49"
-        ]
-        
-//        let params = ["bodyPart", "equipment", "gifUrl", "id", "name", "target"]
-        
-        var urlComponents = URLComponents(string: urlString)
-        urlComponents?.queryItems = [URLQueryItem(name: "maxResults", value: "\(MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "startIndex", value: "\(currentRequestIndex * MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "q", value: exerciseName)]
-        
-        var request = URLRequest(url: (urlComponents?.url)!)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-//        for (key, value) in headers {
-//            request.setValue(value, forHTTPHeaderField: key)
+//    func requestExercisesNamed(_ exerciseName: String) async {
+//
+//        let urlString = "https://exercisedb.p.rapidapi.com/exercises"
+//        let headers = [
+//            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+//            "X-RapidAPI-Key": "cb8d8e2757msha265aec0c035261p1eeeafjsnaa24e0ad4e49"
+//        ]
+//
+//        var urlComponents = URLComponents(string: urlString)
+//        urlComponents?.queryItems = [URLQueryItem(name: "maxResults", value: "\(MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "startIndex", value: "\(currentRequestIndex * MAX_ITEMS_PER_REQUEST)"), URLQueryItem(name: "q", value: exerciseName)]
+//
+//        var request = URLRequest(url: (urlComponents?.url)!)
+//        request.httpMethod = "GET"
+//        request.allHTTPHeaderFields = headers
+//
+//
+//        do {
+//            let (data, _) =
+//            try await URLSession.shared.data(for: request)
+//            await MainActor.run {
+//            }
+//            let decoder = JSONDecoder()
+//            let exerciseData = try decoder.decode(ExerciseData.self, from: data)
+//            if let exercises = exerciseData.exercises {
+//                await MainActor.run {
+//                newExercises.append(contentsOf: exercises)
+//                }
+//                if exercises.count == MAX_ITEMS_PER_REQUEST, currentRequestIndex + 1 < MAX_REQUESTS {
+//                    currentRequestIndex += 1
+//                    await requestExercisesNamed(exerciseName)
+//                }
+//            }
 //        }
-        
-        do {
-            let (data, _) =
-            try await URLSession.shared.data(for: request)
-            await MainActor.run {
-            }
-            let decoder = JSONDecoder()
-            let exerciseData = try decoder.decode(ExerciseData.self, from: data)
-            if let exercises = exerciseData.exercises {
-                await MainActor.run {
-                newExercises.append(contentsOf: exercises)
-                }
-                if exercises.count == MAX_ITEMS_PER_REQUEST, currentRequestIndex + 1 < MAX_REQUESTS {
-                    currentRequestIndex += 1
-                    await requestExercisesNamed(exerciseName)
-                }
-
-            }
-                
-        }
-        catch let error {
-            print(error)
-        }
-    }
-    
+//        catch let error {
+//            print(error)
+//        }
+//    }
 }
 
 
