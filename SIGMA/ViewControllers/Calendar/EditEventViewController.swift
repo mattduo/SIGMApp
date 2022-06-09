@@ -7,10 +7,30 @@
 
 import UIKit
 
-class EditEventViewController: UIViewController {
+class EditEventViewController: UIViewController, AddExerciseDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listOfExercises.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let exerciseCell = tableView.dequeueReusableCell(withIdentifier: "addExerciseCell", for: indexPath)
+        
+        var content = exerciseCell.defaultContentConfiguration()
+        let exercise = listOfExercises[indexPath.row]
+        content.text = exercise.name
+        content.secondaryText = exercise.bodyPart.rawValue
+        exerciseCell.contentConfiguration = content
+        
+        return exerciseCell
+    }
+    
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var exerciseTableView: UITableView!
+    
+    var listOfExercises: [Exercise] = []
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +39,9 @@ class EditEventViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     @IBAction func dateChanged(_ sender: Any) {
-        
-        
     }
     
     @IBAction func doneAction(_ sender: Any) {
@@ -35,17 +55,19 @@ class EditEventViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addExercises(_ sender: Any) {
+        let addExercisesVC = storyboard?.instantiateViewController(withIdentifier: "addExercisesVC") as! AddExercisesTableViewController
+        addExercisesVC.exerciseDelegate = self
+        present(addExercisesVC, animated: true)
     }
-    */
-
+    
+    func addExercise(_ newExercise: Exercise) {
+        exerciseTableView.performBatchUpdates({
+            listOfExercises.append(newExercise)
+            exerciseTableView.insertRows(at: [IndexPath(row: listOfExercises.count - 1, section: 0)], with: .automatic)
+            exerciseTableView.reloadData()
+        }, completion: nil)
+    }
+    
 }
+

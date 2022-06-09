@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 enum DatabaseChange {
     case auth
@@ -15,9 +16,9 @@ enum DatabaseChange {
 }
 
 enum ListenerType {
-    case auth
     case user
     case calendar
+    case all
 }
 
 protocol DatabaseListener: AnyObject {
@@ -32,6 +33,10 @@ protocol DatabaseProtocol: AnyObject {
     func removeListener(listener: DatabaseListener)
     func addEventToCalendar(listener: DatabaseListener)
     func deleteEventFromCalendar(listener: DatabaseListener)
+    
+    func addUser(email: String, preferredUnit: Bool) -> User
+    var currentFirebaseUser: FirebaseAuth.User? { get set }
+    func setupUserListener()
 }
 
 

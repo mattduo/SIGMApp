@@ -103,6 +103,10 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
         tableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //todo
+    }
+    
     
     
 

@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
+    weak var databaseController: DatabaseProtocol?
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -45,6 +47,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             print("Successfully created user: \(authResult.uid)")
+            let _ = self.databaseController?.addUser(email: email, preferredUnit: true)
             self.performSegue(withIdentifier: "signedUpSegue", sender: self)
         }
     }
@@ -53,6 +56,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         errorLabel.alpha = 0 // Hiding error label
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
     }
     
 

@@ -19,7 +19,6 @@ class Event: NSObject, Codable {
     @DocumentID var id: String?
     var title: String?
     var date: Date?
-    var notes: String?
     
     enum CodingKeys: String, CodingKey {
         case id

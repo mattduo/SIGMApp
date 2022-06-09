@@ -25,6 +25,8 @@
 		C95089CE284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089CD284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift */; };
 		C95089D0284BE69A0086E4D1 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089CF284BE69A0086E4D1 /* gifLoader.swift */; };
 		C95089D4284E455D0086E4D1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089D3284E455D0086E4D1 /* SearchBarView.swift */; };
+		C95089D628520C070086E4D1 /* AddExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089D528520C070086E4D1 /* AddExercisesTableViewController.swift */; };
+		C95089D828521CBB0086E4D1 /* AddExerciseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95089D728521CBA0086E4D1 /* AddExerciseDelegate.swift */; };
 		C959CAE028199D660007A27D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CADF28199D660007A27D /* AppDelegate.swift */; };
 		C959CAE228199D660007A27D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959CAE128199D660007A27D /* SceneDelegate.swift */; };
 		C959CAE728199D660007A27D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C959CAE528199D660007A27D /* Main.storyboard */; };
@@ -64,6 +66,8 @@
 		C95089CD284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C95089CF284BE69A0086E4D1 /* gifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifLoader.swift; sourceTree = "<group>"; };
 		C95089D3284E455D0086E4D1 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		C95089D528520C070086E4D1 /* AddExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercisesTableViewController.swift; sourceTree = "<group>"; };
+		C95089D728521CBA0086E4D1 /* AddExerciseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseDelegate.swift; sourceTree = "<group>"; };
 		C959CADC28199D660007A27D /* SIGMA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIGMA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C959CADF28199D660007A27D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C959CAE128199D660007A27D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,12 +104,12 @@
 		C9450819282BDBC7005D7770 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				C95089DA285227230086E4D1 /* Cells */,
+				C95089D9285226FF0086E4D1 /* Helpers */,
 				C945081B282C215F005D7770 /* WeeklyViewController.swift */,
-				C9450817282BAA72005D7770 /* CalendarHelper.swift */,
-				C9450815282BA74A005D7770 /* CalendarCellCollectionViewCell.swift */,
 				C959D13C2822BF700007A27D /* CalendarViewController.swift */,
 				C945081D28350797005D7770 /* EditEventViewController.swift */,
-				C945081F283507D8005D7770 /* EventCellTableViewCell.swift */,
+				C95089D528520C070086E4D1 /* AddExercisesTableViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -167,6 +171,24 @@
 				C95089C1284BBCAA0086E4D1 /* ExerciseDescription */,
 			);
 			path = ExerciseVC;
+			sourceTree = "<group>";
+		};
+		C95089D9285226FF0086E4D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C9450817282BAA72005D7770 /* CalendarHelper.swift */,
+				C95089D728521CBA0086E4D1 /* AddExerciseDelegate.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C95089DA285227230086E4D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C945081F283507D8005D7770 /* EventCellTableViewCell.swift */,
+				C9450815282BA74A005D7770 /* CalendarCellCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C959CAD328199D660007A27D = {
@@ -310,8 +332,10 @@
 				C95089C7284BBE590086E4D1 /* ExerciseDescription.swift in Sources */,
 				C945081E28350798005D7770 /* EditEventViewController.swift in Sources */,
 				C959D13D2822BF700007A27D /* CalendarViewController.swift in Sources */,
+				C95089D628520C070086E4D1 /* AddExercisesTableViewController.swift in Sources */,
 				C959D1412822BFB10007A27D /* Event.swift in Sources */,
 				C959CAF6282126990007A27D /* LogInViewController.swift in Sources */,
+				C95089D828521CBB0086E4D1 /* AddExerciseDelegate.swift in Sources */,
 				C95089CC284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift in Sources */,
 				C95089C0284A46520086E4D1 /* ExerciseDictionaryTableViewController.swift in Sources */,
 				C95089D0284BE69A0086E4D1 /* gifLoader.swift in Sources */,

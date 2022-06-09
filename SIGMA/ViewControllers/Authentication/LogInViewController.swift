@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class LogInViewController: UIViewController {
     
+    weak var databaseController: DatabaseProtocol?
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -42,6 +44,8 @@ class LogInViewController: UIViewController {
                 self.displayMessage(title: "Error", message: error!.localizedDescription)
                 return
             }
+            self.databaseController?.currentFirebaseUser = authResult
+            self.databaseController?.setupUserListener()
             self.performSegue(withIdentifier: "loggedInSegue", sender: self)
         }
     }
@@ -50,6 +54,9 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         errorLabel.alpha = 0 // Hiding error label
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
 
     }
     
