@@ -96,11 +96,9 @@ class AddExercisesTableViewController: UITableViewController, UISearchController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let exerciseDelegate = exerciseDelegate {
             exerciseDelegate.addExercise(newExercises[indexPath.row])
+            tableView.deselectRow(at: indexPath, animated: true)
             return
         }
-        tableView.deselectRow(at: indexPath, animated: true)
-            
-        
     }
 
 }

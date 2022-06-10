@@ -15,7 +15,6 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
-    
     var totalSquares = [Date]()
     let calendar = Calendar.current
 
@@ -104,7 +103,9 @@ class WeeklyViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //todo
+        let exerciseListVC = storyboard?.instantiateViewController(withIdentifier: "eventExercisesVC") as! ExerciseListCollectionViewController
+        present(exerciseListVC, animated: true)
+
     }
     
     

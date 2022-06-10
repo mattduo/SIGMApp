@@ -26,6 +26,12 @@ class OneRepMaxCalculatorUIViewController: UIViewController, UIPickerViewDelegat
         genderPicker.isHidden = true
         exercisePicker.isHidden = true
         super.viewDidLoad()
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "dumbells")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
 
         // Do any additional setup after loading the view.
     }

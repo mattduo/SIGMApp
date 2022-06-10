@@ -13,6 +13,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "pullup")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+
 
         // Do any additional setup after loading the view.
     }
@@ -23,6 +28,7 @@ class ProfileViewController: UIViewController {
         
     }
     
+    //logOut function
     func logOut() {
         do {
             let _ = try Auth.auth().signOut()

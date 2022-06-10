@@ -45,6 +45,9 @@
 		C959D1412822BFB10007A27D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959D1402822BFB00007A27D /* Event.swift */; };
 		C959D1462822C04C0007A27D /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959D1452822C04B0007A27D /* DatabaseProtocol.swift */; };
 		C959D1482822C1090007A27D /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959D1472822C1090007A27D /* MulticastDelegate.swift */; };
+		C95AC53028529B9900740AF5 /* GetExerciseListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC52F28529B9900740AF5 /* GetExerciseListCollectionViewCell.swift */; };
+		C9BE15B728522FFD00D17D8B /* ExerciseListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE15B628522FFD00D17D8B /* ExerciseListCollectionViewController.swift */; };
+		C9BE15B9285236B200D17D8B /* GetExerciseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE15B8285236B200D17D8B /* GetExerciseDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +88,9 @@
 		C959D1402822BFB00007A27D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C959D1452822C04B0007A27D /* DatabaseProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = SIGMA/Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		C959D1472822C1090007A27D /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		C95AC52F28529B9900740AF5 /* GetExerciseListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExerciseListCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9BE15B628522FFD00D17D8B /* ExerciseListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListCollectionViewController.swift; sourceTree = "<group>"; };
+		C9BE15B8285236B200D17D8B /* GetExerciseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExerciseDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				C959D13C2822BF700007A27D /* CalendarViewController.swift */,
 				C945081D28350797005D7770 /* EditEventViewController.swift */,
 				C95089D528520C070086E4D1 /* AddExercisesTableViewController.swift */,
+				C9BE15B628522FFD00D17D8B /* ExerciseListCollectionViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			children = (
 				C9450817282BAA72005D7770 /* CalendarHelper.swift */,
 				C95089D728521CBA0086E4D1 /* AddExerciseDelegate.swift */,
+				C9BE15B8285236B200D17D8B /* GetExerciseDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 		C95089DA285227230086E4D1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C95AC52F28529B9900740AF5 /* GetExerciseListCollectionViewCell.swift */,
 				C945081F283507D8005D7770 /* EventCellTableViewCell.swift */,
 				C9450815282BA74A005D7770 /* CalendarCellCollectionViewCell.swift */,
 			);
@@ -336,6 +345,7 @@
 				C959D1412822BFB10007A27D /* Event.swift in Sources */,
 				C959CAF6282126990007A27D /* LogInViewController.swift in Sources */,
 				C95089D828521CBB0086E4D1 /* AddExerciseDelegate.swift in Sources */,
+				C9BE15B9285236B200D17D8B /* GetExerciseDelegate.swift in Sources */,
 				C95089CC284BDDA60086E4D1 /* ExerciseDictionaryViewController.swift in Sources */,
 				C95089C0284A46520086E4D1 /* ExerciseDictionaryTableViewController.swift in Sources */,
 				C95089D0284BE69A0086E4D1 /* gifLoader.swift in Sources */,
@@ -344,6 +354,7 @@
 				C95089B9284A1EC50086E4D1 /* Exercise.swift in Sources */,
 				C95089B5284630DB0086E4D1 /* FirebaseController.swift in Sources */,
 				C959D1462822C04C0007A27D /* DatabaseProtocol.swift in Sources */,
+				C9BE15B728522FFD00D17D8B /* ExerciseListCollectionViewController.swift in Sources */,
 				C95089B3283F52040086E4D1 /* ProfileViewController.swift in Sources */,
 				C959CAFB282153330007A27D /* LogInSignUpViewController.swift in Sources */,
 				C95089CE284BDFCE0086E4D1 /* ExerciseCollectionViewCell.swift in Sources */,
@@ -356,6 +367,7 @@
 				C9450816282BA74A005D7770 /* CalendarCellCollectionViewCell.swift in Sources */,
 				C9450820283507D8005D7770 /* EventCellTableViewCell.swift in Sources */,
 				C95089D4284E455D0086E4D1 /* SearchBarView.swift in Sources */,
+				C95AC53028529B9900740AF5 /* GetExerciseListCollectionViewCell.swift in Sources */,
 				C959CAE228199D660007A27D /* SceneDelegate.swift in Sources */,
 				C959CB08282255FC0007A27D /* DisplayMessageViewController.swift in Sources */,
 				C959D1482822C1090007A27D /* MulticastDelegate.swift in Sources */,

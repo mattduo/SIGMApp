@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         setCellsView()
         setMonthView()
-        
+                
 //        navigationController?.isNavigationBarHidden = true
 //        self.navigationItem.hidesBackButton = true
 //        self.tabBarController?.navigationItem.hidesBackButton = true
@@ -67,6 +67,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCellCollectionViewCell
         
         cell.dayOfMonth.text = totalSquares[indexPath.item]
+        cell.backgroundColor = UIColor(.gray)
         
         return cell
     }

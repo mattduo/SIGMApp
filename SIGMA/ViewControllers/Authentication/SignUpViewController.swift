@@ -40,6 +40,8 @@ class SignUpViewController: UIViewController {
         signUp(email: email, password: password)
     }
     
+    
+    //signUp function
     func signUp(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             guard let authResult = authResult?.user, error == nil else {
@@ -58,6 +60,16 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 0 // Hiding error label
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "dumbells")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        navigationItem.hidesBackButton = false
+        
+    
+
     }
     
 

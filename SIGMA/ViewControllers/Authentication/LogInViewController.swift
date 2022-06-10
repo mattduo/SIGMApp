@@ -38,6 +38,7 @@ class LogInViewController: UIViewController {
         signIn(email: email, password: password)
     }
     
+    //signIn function
     func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             guard let authResult = authResult?.user, error == nil else {
@@ -57,18 +58,15 @@ class LogInViewController: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "dumbells")
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        navigationItem.hidesBackButton = false
+
 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

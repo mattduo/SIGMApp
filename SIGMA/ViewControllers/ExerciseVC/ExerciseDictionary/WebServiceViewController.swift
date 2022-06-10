@@ -5,16 +5,16 @@
 //  Created by Matt on 3/6/2022.
 //
 
-import UIKit
-import Foundation
-
-class WebService {
-    
-    let MAX_ITEMS_PER_REQUEST = 40
-    let MAX_REQUESTS = 10
-    var currentRequestIndex = 0
-    
-    var newExercises = [Exercise]()
+//import UIKit
+//import Foundation
+//
+//class WebService {
+//    
+//    let MAX_ITEMS_PER_REQUEST = 40
+//    let MAX_REQUESTS = 10
+//    var currentRequestIndex = 0
+//    
+//    var newExercises = [Exercise]()
     
     
 //    func getExercises() {
@@ -105,6 +105,6 @@ class WebService {
 //            print(error)
 //        }
 //    }
-}
+//}
 
 

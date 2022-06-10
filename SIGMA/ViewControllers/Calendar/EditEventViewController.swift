@@ -46,9 +46,9 @@ class EditEventViewController: UIViewController, AddExerciseDelegate, UITableVie
     
     @IBAction func doneAction(_ sender: Any) {
         let newEvent = Event()
-//        newEvent.id = eventsList.count
         newEvent.title = titleTextField.text
         newEvent.date = datePicker.date
+        newEvent.exercises = listOfExercises
         
         eventsList.append(newEvent)
     
